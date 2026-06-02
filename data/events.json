@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "Open Mic Poetry Night",
+    "description": "Our first open mic night brought together poets and storytellers from across the city. The crowd was warm, the coffee was hot, and the words were unforgettable.",
+    "image": "img/unnamed.jpg",
+    "date": "2026-08-25"
+  },
+  {
+    "id": 2,
+    "title": "Valentine's Special Tasting",
+    "description": "We celebrated love with a special cherry-infused coffee tasting paired with homemade chocolate truffles. It was a night to remember!",
+    "image": "img/counter.jpg",
+    "date": "2026-02-14"
+  },
+  {
+    "id": 3,
+    "title": "Live Acoustic Night",
+    "description": "Join us for a cozy evening of live acoustic music featuring local artists. Enjoy your favorite coffee drinks while listening to soulful melodies under warm string lights.",
+    "image": "img/counter.jpg",
+    "date": "2026-03-05"
+  },
+  {
+    "id": 4,
+    "title": "Latte Art Workshop",
+    "description": "Learn the art of latte design from our head barista. This hands-on workshop covers hearts, rosettas, and tulips — perfect for beginners and coffee enthusiasts alike.",
+    "image": "img/chatting.jpg",
+    "date": "2026-03-12"
+  },
+  {
+    "id": 5,
+    "title": "Cherry's Board Game Brunch",
+    "description": "Grab your friends for a morning of board games, freshly baked pastries, and unlimited brewed coffee. We've got over 50 games to choose from!",
+    "image": "img/unnamed.jpg",
+    "date": "2026-03-20"
+  }
+]
