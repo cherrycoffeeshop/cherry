@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Cherry Coffeeshop — Great coffee, warm vibes, and community events." />
   <title>Cherry Coffeeshop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -30,24 +33,49 @@
 
   <!-- ========== Hero ========== -->
   <header class="hero" id="hero">
-    <div class="hero__bg" aria-hidden="true"></div>
-    <div class="hero__content">
-      <img src="assets/Circle_logo.svg" alt="Cherry Coffeeshop emblem" class="hero__logo" />
-      <h1 class="hero__title">Welcome to Cherry</h1>
-      <p class="hero__subtitle">Great coffee, warm vibes, and a place to call your own.</p>
-      <a href="contact.html" class="btn btn-outline hero__cta">Visit Us</a>
+    <div class="hero__panel hero__panel--text">
+      <div class="hero__inner">
+        <p class="hero__eyebrow">Specialty coffee · Καισαριανή</p>
+        <h1 class="hero__wordmark">
+          <span class="hero__cherry">Cherry</span>
+          <span class="hero__tseri" aria-hidden="true">τσέρι</span>
+        </h1>
+        <p class="hero__subtitle">Great coffee, warm vibes, and a place to call your own.</p>
+        <div class="hero__actions">
+          <a href="contact.html" class="btn btn-primary">Visit us</a>
+          <a href="#events" class="btn btn-ghost">See what's on →</a>
+        </div>
+      </div>
     </div>
-    <div class="scroll-indicator" aria-hidden="true">
-      <span class="scroll-indicator__text">Scroll</span>
-      <span class="scroll-indicator__arrow"></span>
+
+    <div class="hero__panel hero__panel--photo">
+      <div class="hero__slides" aria-hidden="true">
+        <img src="img/cherry-cup.jpg" alt="" />
+        <img src="img/drinks-bench.jpg" alt="" />
+        <img src="img/storefront.jpg" alt="" />
+      </div>
+      <span class="hero__chip" aria-hidden="true">τσέρι</span>
     </div>
+
+    <a class="hero__scroll" href="#events" aria-label="Scroll to what's on">↓</a>
   </header>
+
+  <!-- ========== Menu ticker (the wall letter-board, in motion) ========== -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <span>Espresso</span><span>Freddo Espresso</span><span>Hand Brew</span><span>Cappuccino</span><span>Freddo Cappuccino</span><span>Latte</span><span>Flat White</span><span>Greek Coffee</span><span>Oat &amp; Almond</span><span>Matcha</span><span>Tea</span>
+      <span>Espresso</span><span>Freddo Espresso</span><span>Hand Brew</span><span>Cappuccino</span><span>Freddo Cappuccino</span><span>Latte</span><span>Flat White</span><span>Greek Coffee</span><span>Oat &amp; Almond</span><span>Matcha</span><span>Tea</span>
+    </div>
+  </div>
 
   <!-- ========== Upcoming Events ========== -->
   <section class="events-section" id="events">
     <div class="container">
-      <h2 class="section-title">Upcoming Events</h2>
-      <p class="section-subtitle">See what's happening at Cherry — music, workshops, and more.</p>
+      <div class="section-head">
+        <p class="eyebrow">What's on</p>
+        <h2 class="section-title">Something's always brewing</h2>
+        <p class="section-subtitle">Open mics, workshops, and slow mornings — see what's happening at Cherry.</p>
+      </div>
 
       <div class="events-grid" id="upcoming-events-grid">
         <!-- Populated by main.js -->
@@ -62,32 +90,41 @@
   <!-- ========== Gallery ========== -->
   <section class="gallery-section" id="gallery">
     <div class="container">
-      <h2 class="section-title">Our Space</h2>
-      <p class="section-subtitle">A peek inside Cherry — where every corner tells a story.</p>
+      <div class="section-head">
+        <p class="eyebrow">Our space</p>
+        <h2 class="section-title">Every corner tells a story</h2>
+        <p class="section-subtitle">Terrazzo walls, hanging plants, and a rail of merch — a peek inside τσέρι.</p>
+      </div>
 
       <div class="gallery-grid">
-        <div class="gallery-grid__item">
-          <img src="img/counter.jpg" alt="Cherry's coffee counter" loading="lazy">
-        </div>
-        <div class="gallery-grid__item">
-          <img src="img/chatting.jpg" alt="Friends chatting over coffee" loading="lazy">
-        </div>
-        <div class="gallery-grid__item">
-          <img src="img/unnamed.jpg" alt="Inside Cherry coffeeshop" loading="lazy">
-        </div>
-        <div class="gallery-grid__item">
-          <img src="img/counter.jpg" alt="Cherry's coffee counter" loading="lazy">
-        </div>
-        <div class="gallery-grid__item">
-          <img src="img/chatting.jpg" alt="Friends chatting over coffee" loading="lazy">
-        </div>
-        <div class="gallery-grid__item">
-          <img src="img/unnamed.jpg" alt="Inside Cherry coffeeshop" loading="lazy">
-        </div>
+        <figure class="gallery-grid__item">
+          <img src="img/drinks-bench.jpg" alt="Freddo, matcha and a slice on the bench outside Cherry" loading="lazy">
+          <figcaption>Freddo &amp; a slice, on the bench</figcaption>
+        </figure>
+        <figure class="gallery-grid__item">
+          <img src="img/cherry-cup.jpg" alt="A τσέρι takeaway cup in front of framed prints" loading="lazy">
+          <figcaption>τσέρι, to go</figcaption>
+        </figure>
+        <figure class="gallery-grid__item">
+          <img src="img/pastry-case.jpg" alt="The glass case of banana bread, carrot cake and daily bakes" loading="lazy">
+          <figcaption>Banana bread &amp; the daily bakes</figcaption>
+        </figure>
+        <figure class="gallery-grid__item">
+          <img src="img/corner-shelf.jpg" alt="Terrazzo corner with plants, zines and the merch rail" loading="lazy">
+          <figcaption>Plants, zines &amp; the merch rail</figcaption>
+        </figure>
+        <figure class="gallery-grid__item">
+          <img src="img/menu-board.jpg" alt="Cherry's wall menu — from freddo to filter, oat to Greek" loading="lazy">
+          <figcaption>The board — freddo to filter</figcaption>
+        </figure>
+        <figure class="gallery-grid__item">
+          <img src="img/storefront.jpg" alt="The Cherry storefront window on Φορμίωνος" loading="lazy">
+          <figcaption>Find us on Φορμίωνος</figcaption>
+        </figure>
       </div>
 
       <div class="btn-center">
-        <a href="contact.html" class="btn btn-primary">Come Say Hello</a>
+        <a href="contact.html" class="btn btn-primary">Come say hello</a>
       </div>
     </div>
   </section>
