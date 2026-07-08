@@ -526,12 +526,31 @@ h1, h2, h3, h4 {
 }
 
 .event-card {
+  position: relative;
   background: var(--paper);
   border: 1px solid rgba(49, 90, 95, 0.14);
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: transform var(--transition), box-shadow var(--transition);
+}
+
+/* Recurring "what's on now" tag, pinned over the image */
+.event-card__badge {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--cherry);
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
 }
 .event-card:hover {
   transform: translateY(-5px);
@@ -543,6 +562,13 @@ h1, h2, h3, h4 {
   height: 220px;
   object-fit: cover;
   background-color: var(--teal);
+}
+
+/* Poster events (e.g. a promo flyer) show the full square artwork, uncropped */
+.event-card__image--poster,
+.event-card__image-placeholder--poster {
+  height: auto;
+  aspect-ratio: 1 / 1;
 }
 
 .event-card__image-placeholder {
@@ -583,6 +609,19 @@ h1, h2, h3, h4 {
   font-size: 0.95rem;
   color: var(--ink-soft);
   line-height: 1.7;
+}
+
+.event-card__desc a {
+  color: var(--cherry);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  transition: color 0.2s ease;
+}
+
+.event-card__desc a:hover {
+  color: var(--cherry-deep);
 }
 
 /* ============================================

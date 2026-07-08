@@ -23,17 +23,41 @@ function formatDate(dateStr) {
   });
 }
 
+/* --- Recurring events --- */
+/* A recurring event has a `recurring` block (label/time/start/end) instead of
+   a single `date`. It stays "current" through its whole run and only moves to
+   the archive once its end date passes (end: null = ongoing, no auto-archive). */
+function isRecurring(event) {
+  return Boolean(event.recurring);
+}
+
+/* The line shown in place of a formatted date, e.g. "Every Saturday, 11:00–13:00" */
+function recurrenceLabel(recurring) {
+  return recurring.time
+    ? `${recurring.label}, ${recurring.time}`
+    : recurring.label;
+}
+
 /* --- Build a single event card element --- */
 function createEventCard(event) {
   const card = document.createElement("article");
   card.className = "event-card";
 
+  const posterClass = event.poster ? " event-card__image--poster" : "";
+  const badge = isRecurring(event)
+    ? `<span class="event-card__badge">Weekly</span>`
+    : "";
+  const dateLabel = isRecurring(event)
+    ? recurrenceLabel(event.recurring)
+    : formatDate(event.date);
+
   card.innerHTML = `
-    <div class="event-card__image-placeholder">
+    ${badge}
+    <div class="event-card__image-placeholder${posterClass}">
       <span>${event.title}</span>
     </div>
     <div class="event-card__body">
-      <p class="event-card__date">${formatDate(event.date)}</p>
+      <p class="event-card__date">${dateLabel}</p>
       <h3 class="event-card__title">${event.title}</h3>
       <p class="event-card__desc">${event.description}</p>
     </div>
@@ -43,7 +67,7 @@ function createEventCard(event) {
   const img = new Image();
   img.src = event.image;
   img.alt = event.title;
-  img.className = "event-card__image";
+  img.className = "event-card__image" + posterClass;
 
   img.onload = () => {
     const placeholder = card.querySelector(".event-card__image-placeholder");
@@ -60,23 +84,42 @@ function startOfToday() {
   return today;
 }
 
-/* An event counts as upcoming through its whole day (today = upcoming) */
-function isUpcoming(event) {
-  return new Date(event.date + "T00:00:00") >= startOfToday();
+/* Has the event finished?
+   - single event: its day is over (today still counts as current)
+   - recurring event: only once its end date has passed (no end = never) */
+function isPast(event) {
+  if (isRecurring(event)) {
+    const end = event.recurring.end;
+    return end ? new Date(end + "T00:00:00") < startOfToday() : false;
+  }
+  return new Date(event.date + "T00:00:00") < startOfToday();
 }
 
-/* Future events, soonest first */
+/* The date used to order an event within a list */
+function sortDate(event) {
+  return isRecurring(event)
+    ? event.recurring.end || event.recurring.start || ""
+    : event.date;
+}
+
+/* Current + upcoming events. Recurring/ongoing ones lead (they're what's on
+   right now), then single events soonest-first. */
 function upcomingEvents(all) {
-  return all
-    .filter(isUpcoming)
-    .sort((a, b) => a.date.localeCompare(b.date));
+  return all.filter((event) => !isPast(event)).sort((a, b) => {
+    const aRec = isRecurring(a);
+    const bRec = isRecurring(b);
+    if (aRec !== bRec) return aRec ? -1 : 1;
+    const aKey = aRec ? a.recurring.start || "" : a.date;
+    const bKey = bRec ? b.recurring.start || "" : b.date;
+    return aKey.localeCompare(bKey);
+  });
 }
 
 /* Past events, most recent first */
 function pastEvents(all) {
   return all
-    .filter((event) => !isUpcoming(event))
-    .sort((a, b) => b.date.localeCompare(a.date));
+    .filter(isPast)
+    .sort((a, b) => sortDate(b).localeCompare(sortDate(a)));
 }
 
 /* --- Fetch all events, then render the subset chosen by selectFn --- */

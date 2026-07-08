@@ -1,37 +1,43 @@
 [
   {
+    "id": 5,
+    "title": "Roll the Dice",
+    "description": "Every Saturday morning your order comes with a roll of the dice — ρίξε το ζάρι and win something good. Land a 6 for a cookie on us, a 5 to size up to a large, a 4 or 2 for 20% off your next drink, and double sixes for a coffee on the house.",
+    "image": "img/roll-the-dice.jpg",
+    "poster": true,
+    "recurring": {
+      "label": "Every Saturday",
+      "time": "11:00–13:00",
+      "start": "2026-07-11",
+      "end": null
+    }
+  },
+  {
     "id": 1,
-    "title": "Open Mic Poetry Night",
-    "description": "Our first open mic night brought together poets and storytellers from across the city. The crowd was warm, the coffee was hot, and the words were unforgettable.",
-    "image": "img/storefront.jpg",
-    "date": "2026-08-25"
+    "title": "Bazaar × anotherantz",
+    "description": "A summer bazaar with anotherantz (<a href='https://www.instagram.com/_.anotherantz._/' target='_blank' rel='noopener noreferrer'>@_.anotherantz._</a>) — handmade pieces spread across the shop, a freddo in hand, and a slow afternoon of browsing with friends.",
+    "image": "img/drinks-bench.jpg",
+    "date": "2026-06-26"
   },
   {
     "id": 2,
-    "title": "Valentine's Special Tasting",
-    "description": "We celebrated love with a special cherry-infused coffee tasting paired with homemade chocolate truffles. It was a night to remember!",
-    "image": "img/drinks-bench.jpg",
-    "date": "2026-02-14"
+    "title": "Bazaar × Label Done",
+    "description": "We handed the racks over to Label Done (<a href='https://www.instagram.com/mylabeldone/' target='_blank' rel='noopener noreferrer'>@mylabeldone</a>) for the day — prints, pieces and finds all around the shop. We also ran a giveaway: a Label Done tee and a big bag of Cafeistas coffee went home with two lucky regulars.",
+    "image": "img/corner-shelf.jpg",
+    "date": "2026-06-06"
   },
   {
     "id": 3,
-    "title": "Live Acoustic Night",
-    "description": "Join us for a cozy evening of live acoustic music featuring local artists. Enjoy your favorite coffee drinks while listening to soulful melodies under warm string lights.",
-    "image": "img/corner-shelf.jpg",
-    "date": "2026-03-05"
+    "title": "Masquerade Party",
+    "description": "Carnival season, τσέρι-style. Masks on, music up — we turned the shop into a masquerade for one night of costumes, coffee and good company.",
+    "image": "img/storefront.jpg",
+    "date": "2026-02-21"
   },
   {
     "id": 4,
-    "title": "Latte Art Workshop",
-    "description": "Learn the art of latte design from our head barista. This hands-on workshop covers hearts, rosettas, and tulips — perfect for beginners and coffee enthusiasts alike.",
+    "title": "A Heart with Every Cup",
+    "description": "This Valentine's, every coffee came with a little something extra — a heart-shaped treat on the house, handed over with your cup. Our sweet way of saying we love having you here.",
     "image": "img/cherry-cup.jpg",
-    "date": "2026-03-12"
-  },
-  {
-    "id": 5,
-    "title": "Cherry's Board Game Brunch",
-    "description": "Grab your friends for a morning of board games, freshly baked pastries, and unlimited brewed coffee. We've got over 50 games to choose from!",
-    "image": "img/pastry-case.jpg",
-    "date": "2026-03-20"
+    "date": "2026-02-14"
   }
 ]
